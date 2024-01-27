@@ -6,9 +6,6 @@
     "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "bin": {
-        "wucdbm-vite-acme": "dist/cli/index.js"
-    },
     "files": [
         "dist",
         "LICENSE",
@@ -27,19 +24,15 @@
         "prepare": "husky install"
     },
     "peerDependencies": {
-        "@rollup/plugin-replace": "^5.0.5",
-        "vite": "^5.0.12",
-        "vue": "^3.4.15"
+        "vite": ">=5.0.12",
+        "@vue/compiler-core": ">=3.4.15"
     },
     "peerDependenciesMeta": {
-        "@vueuse/head": {
-            "optional": true
+        "vite": {
+            "optional": false
         },
-        "vue": {
-            "optional": true
-        },
-        "vue-router": {
-            "optional": true
+        "@vue/compiler-core": {
+            "optional": false
         }
     },
     "devDependencies": {
@@ -56,11 +49,11 @@
         "lint-staged": "^15.2.0",
         "prettier": "^3.2.4",
         "typescript": "^5.2.2",
-        "vite": "^5.0.12",
+        "vite": ">=5.0.12",
         "vite-plugin-dts": "^3.7.2"
     },
     "dependencies": {
-        "vue": "^3.4.15"
+        "@vue/compiler-core": ">=3.4.15"
     },
     "lint-staged": {
         "**/*.{js,ts,tsx}": [
