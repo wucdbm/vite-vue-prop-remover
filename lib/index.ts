@@ -32,3 +32,19 @@ export function createPropRemover(name: string): NodeTransform {
         })
     }
 }
+
+export function createDirectiveRemover(name: string): NodeTransform {
+    return (node: RootNode | TemplateChildNode) => {
+        if (node.type !== NodeTypes.ELEMENT) {
+            return
+        }
+
+        node.props = node.props.filter((prop) => {
+            if (prop.type === NodeTypes.DIRECTIVE && prop.name === name) {
+                return false
+            }
+
+            return true
+        })
+    }
+}
